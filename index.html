@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title></title>
+  <script src='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.js'></script>
+  <link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.css' rel='stylesheet' />
+  <link rel="stylesheet" href="main.css" type="text/css" charset="utf-8"/>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <!--[if lte IE 8]>
+    <link href='//api.tiles.mapbox.com/mapbox.js/v1.3.1/mapbox.ie.css' rel='stylesheet'>
+  <![endif]-->
+  <style>
+    body { margin:0; padding:0; }
+    #map { position:absolute; top:0; bottom:0; width:100%; height: 100%;}
+  </style>
+</head>
+<body width="100%" height="100%">
+  
+<div id='map'>
+<script type='text/javascript'>
+
+$( document ).ready(function() {
+  var cl_W = document.body.clientWidth;
+  var cl_H = window.innerHeight;
+  $(".smallMap").css("margin-top",cl_H - 320);
+  $(".smallMap").css("margin-left",20);
+  $(".legend").css("margin-top",cl_H - 320);
+  if (cl_W-550 > 320)
+  {
+  $(".legend").css("margin-left",cl_W-550);
+  } else {$(".legend").css("margin-left",320);}
+
+});
+
+$( window ).resize(function() {
+   var cl_W = document.body.clientWidth;
+  var cl_H = window.innerHeight;
+  $(".smallMap").css("margin-top",cl_H - 320);
+  $(".smallMap").css("margin-left",20);
+  $(".legend").css("margin-top",cl_H - 320);
+  if (cl_W-550 > 320)
+  {
+  $(".legend").css("margin-left",cl_W-550);
+  } else {$(".legend").css("margin-left",320);}
+  
+});
+
+var N = 14;
+var map = L.mapbox.map('map', 'svetosil.map-elv0x9ci', {zoomControl: false})
+    .setView([55.756, 37.620], 14);
+
+var geoJson = [
+
+{
+
+
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.62216567993164, 55.76720692656915]
+    },
+    "properties": {
+        "title": "409 поездок",
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [27, 27], // size of the icon
+            "iconAnchor": [13, 13], // point of the icon which will correspond to marker's location
+            "popupAnchor": [0, 0]  // point from which the popup should open relative to the iconAnchor
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.60212421417236, 55.74472395350909]
+    },
+    "properties": {
+       "title": "1654 поездки",
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [100, 100],
+            "iconAnchor": [25, 75],
+            "popupAnchor": [0, -55]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.60521411895752, 55.764744332887204]
+    },
+    "properties": {
+        "title": "777 поездок",
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [47, 47],
+            "iconAnchor": [-4,35],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.600579261779785, 55.750979916446624]
+    },
+    "properties": {
+        "title": "657 поездок",
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [40, 40],
+            "iconAnchor": [1,5],
+            "popupAnchor": [-10,-40]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.645254135131836, 55.760132587154445]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [38, 38],
+            "iconAnchor": [19,19],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.59864807128906, 55.757705768951865]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [38, 38],
+            "iconAnchor": [3,23],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.623538970947266, 55.76220914750222]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [34, 34],
+            "iconAnchor": [17,17],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.60203838348389, 55.76153307022723]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [31, 31],
+            "iconAnchor": [4,12],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.599817514419556, 55.74711534735536]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [31, 31],
+            "iconAnchor": [1,17],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.62139320373535, 55.77325410688438]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [25, 25],
+            "iconAnchor": [12,12],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.63795852661133, 55.76515477596931]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [25, 25],
+            "iconAnchor": [12,12],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.613325119018555, 55.75803176823725]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [23, 23],
+            "iconAnchor": [11,11],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.62173652648926, 55.77029702014263]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [22, 22],
+            "iconAnchor": [11,11],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.59714603424072, 55.73402127449189]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [21, 21],
+            "iconAnchor": [10,10],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.64199256896973, 55.76298179289187]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [21, 21],
+            "iconAnchor": [10,10],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.647271156311035, 55.752984510862255]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [19, 19],
+            "iconAnchor": [9,9],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.60937690734863, 55.76182281906613]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [19, 19],
+            "iconAnchor": [9,9],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.6012659072876, 55.75472335269979]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [18, 18],
+            "iconAnchor": [7,9],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.61362552642822, 55.768100181910995]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [17, 17],
+            "iconAnchor": [8,8],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.59903430938721, 55.757138282213894]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [15, 15],
+            "iconAnchor": [0,3],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.6091194152832, 55.76682064765003]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [14, 14],
+            "iconAnchor": [7,7],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.61765956878662, 55.76298179289187]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [13, 13],
+            "iconAnchor": [6,6],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.60615825653076, 55.75646211702207]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [13, 13],
+            "iconAnchor": [6,6],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.618045806884766, 55.76766562781467]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [12, 12],
+            "iconAnchor": [6,6],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.64860153198242, 55.75571349188569]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [12, 12],
+            "iconAnchor": [6,6],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.56929397583008, 55.712534581704304]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [11, 11],
+            "iconAnchor": [5,5],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.64641284942627, 55.758538872820324]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [11, 11],
+            "iconAnchor": [5,5],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.57877826690674, 55.72437910305522]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [10, 10],
+            "iconAnchor": [5,5],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.63139247894287, 55.76662750675525]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [10, 10],
+            "iconAnchor": [5,5],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.61311054229736, 55.76307837248911]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/marker.png",
+            "iconSize": [10, 10],
+            "iconAnchor": [5,5],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [37.60053634643555, 55.75465090250418]
+    },
+    "properties": {
+        "icon": {
+            "iconUrl": "http://mapbox.svetosil.ru/route1.png",
+            "iconSize": [130, 500],
+            "iconAnchor": [65,250],
+            "popupAnchor": [0,0]
+        }
+    }
+},
+
+];
+
+// Set a custom icon on each marker based on feature properties
+
+map.markerLayer.on('layeradd', function(e) {
+    var marker = e.layer,
+        feature = marker.feature;
+
+    marker.setIcon(L.icon(feature.properties.icon));
+});
+
+// Add features to the map
+map.markerLayer.setGeoJSON(geoJson);
+
+
+map.touchZoom.disable();
+map.doubleClickZoom.disable();
+map.scrollWheelZoom.disable();
+</script>
+</div>
+  <div class="smallMap" width="266" height="300" z-index="50"><img src="images/smallMap.jpg" width="266" height="300"></div>
+  <div class="legend">
+    <div class="legHeader">
+      <h1 style="font-family: Helvetica, Arial, sans-serif; font-size: 44px; margin-bottom:5px">Веломаршруты</h1>
+      <p style="font-family: Helvetica, Arial, sans-serif; font-size: 18px; margin-top: 0px;">Топ-50 маршрутов городской сети велостоянок</p>
+    </div>
+    <div style="clear:both;"></div>
+    <div class="innerLegend">
+      <div class="legContainer" width="400" height="120" style="float:left; font-family: Helvetica, Arial, sans-serif; font-size: 13px;">
+        <div class="thickness" width="200" height="70" style="float:left; ">
+          <b>Толщина</b><br>
+          <div class="plot" height="36px" style="float:left; margin-top:5px;"><img height="36px" width="80px" src="images/thickness.png"></div>
+          <div class="plotText" width="120px" height="36px" style="float:left; margin-left:10px; margin-top:5px;">1500<br/>поездок</div>
+        </div>
+        <div class="color" width="200" height="70" style="float:left; margin-left:20px;">
+          <b>Цвет</b><br>
+          <div class="plot" height="36px" style="float:left; margin-top:5px "><img height="36px" width="35px" src="images/color.png"></div>
+          <div class="plotText" width="160px" height="36px" style="float:left; margin-left: 10px; margin-top:5px;">против и по<br/>часовой стрелке</div>
+        </div>
+        <div class="clear" style="clear:both;" width="400px"></div>
+        <div class="roundabout" height="30" style="margin-top:10px;">
+          <div class="imgRound" width="30" height="30" style="float:left;"><img  width="30" height="30"  src="images/round.png"></div>
+          <div class="textRound" width="100" height="30" style="float:left; margin-left: 10px; margin-top:8px;">Кольцевой маршрут</div>
+        </div>
+      </div>
+      <div class="signature" style="float:left; margin-left: 60px; font-family: Helvetica, Arial, sans-serif; font-size: 13px;" width="150px" height="100px">
+        Дизайн:<br/>
+        <a href="http://datalaboratory.ru">Лаборатория данных</a>
+        <br/><br/>
+        Координатор:<br/>
+        <a href="http://stepan.ru">Степан Чижов</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

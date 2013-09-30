@@ -1,0 +1,6 @@
+.body {font-family: Helvetica, Arial, sans-serif;}
+.smallMap {position:absolute;}
+.legend { position:absolute; width:540px; height:250px; background-color: #222222;}
+.legend .legHeader {width:500; height: 80; background-color: #444444; margin-left: 20px;}
+.legend .innerLegend {width: 500; height: 170; background-color: #666666;}
+.h1 {font-family: Helvetica, Arial, sans-serif;}
